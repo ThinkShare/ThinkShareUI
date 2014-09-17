@@ -1,8 +1,8 @@
-myApp.factory('articleData', function($http , $q){
+myApp.factory('articleData', function($http , $q , helper){
     return{
         getAllArticles: function(){
             var defer = $q.defer();
-            $http.get('../../data/AllArticleInfo').
+            $http.get(helper.baseUrl()+'api/Articles/GetArticles').
                 success(function(data, status, headers, config) {
                     defer.resolve(data);
                 }).
@@ -14,7 +14,7 @@ myApp.factory('articleData', function($http , $q){
         },
         getArticleById: function (articleId) {
             var defer = $q.defer();
-            $http.get('../../data/ArticleInfo').
+            $http.get(helper.baseUrl()+'api/Articles/GetArticle/'+articleId).
                 success(function(data, status, headers, config) {
                     defer.resolve(data);
                 }).
@@ -26,7 +26,7 @@ myApp.factory('articleData', function($http , $q){
         },
         getArticleCategoryId: function (categoryId) {
             var defer = $q.defer();
-            $http.get('../../data/AllArticleInfo').
+            $http.get(helper.baseUrl()+'api/Articles/GetArticlesByCategoryId/'+categoryId).
                 success(function(data, status, headers, config) {
                     defer.resolve(data);
                 }).

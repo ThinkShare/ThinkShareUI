@@ -1,6 +1,5 @@
-myApp.controller('ArticleController' , function($scope , articleData , $routeParams){
+myApp.controller('ArticleController' , function($scope , articleData , $routeParams , comments , $route , helper){
     articleData.getArticleById($routeParams.articleId).then(function(data){
-        data = data[0];
         $scope.articleId = data.articleId;
         $scope.articleHead = data.articleHead;
         $scope.articleAuthor = data.articleAuthor;
@@ -13,4 +12,9 @@ myApp.controller('ArticleController' , function($scope , articleData , $routePar
     $scope.showCommentFrom = function(){
         $scope.show = true;
     }
+    $scope.AddComment = function(articleId , comment){
+            comments.addComment(articleId , comment).then(function(data){
+                $route.reload();
+            });
+    };
 })

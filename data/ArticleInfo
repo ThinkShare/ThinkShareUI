@@ -5,12 +5,11 @@
          "articleAuthor": "Pesho",
          "articleText": "Some long long text Some long long text Some long long text Some long long text Some long long text Some long long text Some long long text Some long long text Some long long text ",
          "date": "17.09.2014",
-         "category": "Nqkakva Categoriq",
+         "categoryId": 1,
          "comments":[
              {
              "author":"John",
-             "text":"Some long long text ",
-             "comments" : []
+             "text":"Some long long text "
              },
              {"author":"Anna", "text":"Some long long text "},
              {"author":"Peter", "text":"Some long long text "}

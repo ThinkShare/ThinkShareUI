@@ -3,5 +3,5 @@ myApp.controller('MainPageController', function($scope , categories){
         $scope.categories = data;
     })
     $scope.authorName = "Team Lime";
-    $scope.linkedInLink = "https://www.linkedin.com/pub/teodor-tunev/58/586/63a";
+    $scope.linkedInLink = "https://github.com/ThinkShare";
 });
