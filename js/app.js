@@ -19,8 +19,12 @@ myApp.config(function ($routeProvider) {
             controller: 'CategoryController'
         })
         .when('/newpost' , {
-            templateUrl: 'partials/createPost.html',
+            templateUrl: 'partials/post.html',
             controller: 'NewPostController'
+        })
+        .when('/edit/:articleId', {
+            templateUrl: 'partials/post.html',
+            controller: 'EditPostController'
         })
         .otherwise({ redirectTo: '/'});
 });

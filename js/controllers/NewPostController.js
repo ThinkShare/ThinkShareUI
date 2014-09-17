@@ -7,4 +7,6 @@ myApp.controller('NewPostController' , function($scope , posts , categories , $r
     $scope.submit = function(post){
         console.log(post.name);
     }
+    $scope.pageInfo = "Create New Post";
+    $scope.isNewPost = true;
 });
