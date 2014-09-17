@@ -9,7 +9,8 @@ myApp.config(function ($routeProvider) {
         .when('/byauthor/:authorName', {
             templateUrl: 'partials/articles.html',
             controller: 'ByAuthorController'
-        }).when('/article/:articleId', {
+        })
+        .when('/article/:articleId', {
             templateUrl: 'partials/article.html',
             controller: 'ArticleController'
         })
@@ -17,6 +18,9 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'partials/articles.html',
             controller: 'CategoryController'
         })
+        .when('/newpost' , {
+            templateUrl: 'partials/createPost.html',
+            controller: 'NewPostController'
+        })
         .otherwise({ redirectTo: '/'});
-
-})
+});

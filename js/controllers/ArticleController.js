@@ -9,4 +9,8 @@ myApp.controller('ArticleController' , function($scope , articleData , $routePar
         $scope.category = data.category;
         $scope.comments = data.comments;
     })
+    $scope.show = false;
+    $scope.showCommentFrom = function(){
+        $scope.show = true;
+    }
 })
