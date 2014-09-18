@@ -1,6 +1,8 @@
-myApp.factory('posts' , function($http , $q , helper){
+myApp.factory('posts' , function($http , $q , helper , hash){
     return {
         createNewPost: function(post){
+            var password = hash.generateHashPassword(post.password);
+            post.password = password;
             var defer = $q.defer();
             $http({
                 url: helper.baseUrl()+'api/Articles/PostArticle',
@@ -18,6 +20,8 @@ myApp.factory('posts' , function($http , $q , helper){
         },
         editPost: function(articleId , post){
             var defer = $q.defer();
+            var password = hash.generateHashPassword(post.password);
+            post.password = password;
             $http({
                 url: helper.baseUrl()+'api/Articles/PutArticle/'+articleId,
                 method: 'PUT',
@@ -32,13 +36,14 @@ myApp.factory('posts' , function($http , $q , helper){
 
             return defer.promise;
         },
-        deletePost: function(articleId , post){
+        deletePost: function(articleId , password){
+        var pass = hash.generateHashPassword(password);
             var defer = $q.defer();
             $http({
                 url: helper.baseUrl()+'api/Articles/DeleteArticle/'+articleId,
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
-                data: {password : post.password}
+                data: {password : pass}
             }).success(function(data, status, headers, config) {
                 defer.resolve(data);
             }).

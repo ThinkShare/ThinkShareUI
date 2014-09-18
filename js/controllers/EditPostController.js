@@ -1,4 +1,4 @@
-myApp.controller('EditPostController' , function($scope , posts , articleData, categories , $routeParams){
+myApp.controller('EditPostController' , function($scope , posts , articleData, categories , $routeParams , hash){
     var postId = $routeParams.articleId;
     categories.getCategories().then(function(data){
         $scope.categories = data;
@@ -15,7 +15,8 @@ myApp.controller('EditPostController' , function($scope , posts , articleData, c
         })
     }
     $scope.delete = function(post){
-        posts.deletePost($routeParams.articleId , post).then(function(data){
+        var password = post.password;
+        posts.deletePost($routeParams.articleId , password).then(function(data){
             alert("deleted");
         })
     }
