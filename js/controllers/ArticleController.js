@@ -1,20 +1,20 @@
 myApp.controller('ArticleController' , function($scope , articleData , $routeParams , comments , $route , helper){
     articleData.getArticleById($routeParams.articleId).then(function(data){
-        $scope.articleId = data.articleId;
-        $scope.articleHead = data.articleHead;
-        $scope.articleAuthor = data.articleAuthor;
-        $scope.articleText = data.articleText;
-        $scope.date = data.date;
-        $scope.category = data.category;
-        $scope.comments = data.comments;
+        $scope.articleId = data.ArticleId;
+        $scope.articleHead = data.ArticleHead;
+        $scope.articleAuthor = data.ArticleAuthor;
+        $scope.articleText = data.ArticleText;
+        $scope.date = data.Date;
+        $scope.category = data.Category;
+        $scope.comments = data.Comments;
     })
     $scope.show = false;
     $scope.showCommentFrom = function(){
         $scope.show = true;
     }
     $scope.AddComment = function(articleId , comment){
-            comments.addComment(articleId , comment).then(function(data){
-                $route.reload();
-            });
+        comments.addComment(articleId , comment).then(function(data){
+            $route.reload();
+        });
     };
 })

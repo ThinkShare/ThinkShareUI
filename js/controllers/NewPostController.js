@@ -1,7 +1,7 @@
 myApp.controller('NewPostController' , function($scope , posts , categories,hash , $routeParams){
     categories.getCategories().then(function(data){
         $scope.categories = data;
-        $scope.post = { category : $scope.categories[0].id};
+        $scope.post = { Category : $scope.categories[0].Id};
     })
     //posts.createNewPost(post).then(function(data){
     //})

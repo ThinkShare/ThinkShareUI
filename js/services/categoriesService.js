@@ -1,8 +1,8 @@
-myApp.factory('categories' , function($http , $q){
+myApp.factory('categories' , function($http , $q , helper){
     return {
         getCategories: function(){
             var defer = $q.defer();
-            $http.get('../../data/CategoriesList').
+            $http.get(helper.baseUrl()+'api/Categories/GetCategories').
                 success(function(data, status, headers, config) {
                     defer.resolve(data);
                 }).

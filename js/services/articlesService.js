@@ -35,6 +35,18 @@ myApp.factory('articleData', function($http , $q , helper){
                 });
 
             return defer.promise;
+        },
+        getArticleAuthorName: function (authorName) {
+            var defer = $q.defer();
+            $http.get(helper.baseUrl()+'api/Articles/GetArticlesByAuthorName?name='+authorName).
+                success(function(data, status, headers, config) {
+                    defer.resolve(data);
+                }).
+                error(function(data, status, headers, config) {
+                    defer.reject(data);
+                });
+
+            return defer.promise;
         }
     }
 })
