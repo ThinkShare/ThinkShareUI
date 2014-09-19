@@ -46,8 +46,7 @@ myApp.factory('posts' , function($http , $q , helper , hash){
                 data: {password : pass}
             }).success(function(data, status, headers, config) {
                 defer.resolve(data);
-            }).
-                error(function(data, status, headers, config) {
+            }).error(function(data, status, headers, config) {
                     defer.reject(data);
                 });
 

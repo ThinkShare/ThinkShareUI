@@ -26,5 +26,13 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'partials/post.html',
             controller: 'EditPostController'
         })
+        .when('/byword/:tagName', {
+            templateUrl: 'partials/articles.html',
+            controller: 'ByTagController'
+        })
+        .when('/error/:errorMessage', {
+            templateUrl: 'partials/error.html',
+            controller: 'ErrorController'
+        })
         .otherwise({ redirectTo: '/'});
 });

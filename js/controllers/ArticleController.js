@@ -7,6 +7,8 @@ myApp.controller('ArticleController' , function($scope , articleData , $routePar
         $scope.date = data.Date;
         $scope.category = data.Category;
         $scope.comments = data.Comments;
+    },function(){
+        helper.showError("Id not Found");
     })
     $scope.show = false;
     $scope.showCommentFrom = function(){

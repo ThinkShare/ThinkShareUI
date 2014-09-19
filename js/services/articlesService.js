@@ -30,8 +30,8 @@ myApp.factory('articleData', function($http , $q , helper){
                 success(function(data, status, headers, config) {
                     defer.resolve(data);
                 }).
-                error(function(data, status, headers, config) {
-                    defer.reject(data);
+                error(function(data, status, headers, config , statusText ) {
+                    defer.reject(status);
                 });
 
             return defer.promise;
@@ -39,6 +39,18 @@ myApp.factory('articleData', function($http , $q , helper){
         getArticleAuthorName: function (authorName) {
             var defer = $q.defer();
             $http.get(helper.baseUrl()+'api/Articles/GetArticlesByAuthorName?name='+authorName).
+                success(function(data, status, headers, config) {
+                    defer.resolve(data);
+                }).
+                error(function(data, status, headers, config) {
+                    defer.reject(data);
+                });
+
+            return defer.promise;
+        },
+        getArticleAuthorTag: function (tag) {
+            var defer = $q.defer();
+            $http.get(helper.baseUrl()+'api/Articles/GetArticlesByTag?tagName='+tag).
                 success(function(data, status, headers, config) {
                     defer.resolve(data);
                 }).
