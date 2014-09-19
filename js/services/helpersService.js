@@ -1,8 +1,8 @@
 myApp.factory('helper' , function($location){
     return {
         baseUrl: function(){
-            //return "http://thinkshare.apphb.com/";
-            return "http://localhost:6466/";
+            return "http://thinkshare.apphb.com/";
+            //return "http://localhost:6466/";
         },
         convertDate:function(date){
             var year = date.getYear();

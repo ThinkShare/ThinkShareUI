@@ -17,6 +17,8 @@ myApp.controller('ArticleController' , function($scope , articleData , $routePar
     $scope.AddComment = function(articleId , comment){
         comments.addComment(articleId , comment).then(function(data){
             $route.reload();
+        },function(err){
+            helper.showError(err.Message);
         });
     };
 })
